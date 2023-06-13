@@ -1,5 +1,5 @@
 {
-  "name": "good_code",
+  "name": "bad_code",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "vue": "^3.2.47",
     "vuetify": "^3.3.3"
   },
   "devDependencies": {
+    "@mdi/font": "^7.2.96",
     "@vitejs/plugin-vue": "^4.1.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
