@@ -1,7 +1,5 @@
 <template>
-  <div>
     <v-app>
-      <div>
         <v-app-bar color="#1c1c1c">
           <template v-slot:prepend>
             <v-img src="src/assets/TDC_LOGO.png" height="60" width="90" />
@@ -27,19 +25,19 @@
                   <tbody>
                     <tr
                       v-if="List1.length > 0"
-                      v-for="item in List1"
-                      :key="item.name"
+                      v-for="i in List1"
+                      :key="i.name"
                     >
-                      <td>{{ item.name }}</td>
+                      <td>{{ i.name }}</td>
                       <td>
                         <v-btn
-                          @click="shw(item.url)"
+                          @click="shw(i.url)"
                           density="compact"
                           icon="mdi-open-in-new"
                           class="mr-2"
                         ></v-btn>
                         <v-btn
-                          @click="remove(item)"
+                          @click="remove(i)"
                           density="compact"
                           icon="mdi-delete-outline"
                           class="mr-2"
@@ -58,7 +56,7 @@
             <v-col cols="9">
               <v-select
                 v-model="current"
-                label="type2s"
+                label="Pokémons"
                 :items="List2"
                 item-title="name"
                 return-object
@@ -102,9 +100,7 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-      </div>
     </v-app>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -132,8 +128,18 @@ const current2 = ref<type2>();
 const show = ref(false);
 
 const add = () => {
-  if (current.value) {
-    List1.value.push(current.value);
+  if (!current.value || !current.value.name) {
+    alert('Escolha um pokemon para adicionar na tabela')
+  } 
+  else if(
+    List1.value.findIndex(
+      el => el.name === current.value?.name
+    ) === -1){
+    List1.value.push(
+      current.value
+    );
+  } else {
+    alert('Pokemon ja existe na tabela')
   }
 };
 
