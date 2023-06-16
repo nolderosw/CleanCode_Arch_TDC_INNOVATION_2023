@@ -11,10 +11,14 @@
           />
         </v-col>
       </v-row>
-      <PokemonSelect
-        :pokemon-select-list="selectPokedex.pokemons"
-        @push="pushPokemon"
-      />
+      <PokemonSelect :pokemons="selectPokedex.pokemons">
+        <template #right="scope">
+          <v-btn height="55px" block color="primary" 
+            @click="pushPokemon(scope.currentPokemon)">
+            Adicionar Pokémon
+          </v-btn>
+        </template>
+      </PokemonSelect>
     </v-container>
     <PokemonDialog
       :show="showDetailsDialog"
@@ -24,21 +28,21 @@
   </v-app>
 </template>
 
-<script setup lang="ts"> 
-import { onMounted, reactive, ref } from "vue";
+<script setup lang="ts">
+import { inject, onMounted, reactive, ref } from "vue";
 import Header from "./components/AppHeader.vue";
 import PokemonTable from "./components/PokemonTable.vue";
 import PokemonDialog from "./components/PokemonDialog.vue";
 import PokemonSelect from "./components/PokemonSelect.vue";
 import { PokemonCompact, Pokemon } from "./types/Pokemon";
 import Pokedex from "./entities/Pokedex";
-import PokemonGatewayHttp from "./gateways/PokemonGatewayHttp";
+import PokemonGateway from "./gateways/PokemonGateway";
 
 const pokemon = ref<Pokemon>();
 const showDetailsDialog = ref(false);
 const tablePokedex = reactive(new Pokedex());
 const selectPokedex = reactive(new Pokedex());
-const pokemonsGateway = new PokemonGatewayHttp();
+const pokemonsGateway = inject("pokemonGateway") as PokemonGateway
 
 onMounted(async () => {
   const pokemons = await pokemonsGateway.getPokemons();
@@ -50,12 +54,12 @@ const pushPokemon = (pokemon: PokemonCompact) => {
   } catch (error) {
     alert(error);
   }
-}
+};
 const removePokemon = (pokemonToRemove: PokemonCompact) => {
   tablePokedex.removePokemon(pokemonToRemove);
 };
 const showPokemonDetails = async (pokemonUrl: string) => {
-  pokemon.value = await pokemonsGateway.getPokemonByUrl(pokemonUrl)
+  pokemon.value = await pokemonsGateway.getPokemonByUrl(pokemonUrl);
   showDetailsDialog.value = true;
 };
 </script>

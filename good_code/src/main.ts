@@ -7,6 +7,7 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
+import PokemonGatewayHttp from './gateways/PokemonGatewayHttp'
 
 const vuetify = createVuetify({
   components,
@@ -20,4 +21,6 @@ const vuetify = createVuetify({
   },
 })
 
-createApp(App).use(vuetify).mount('#app')
+const app = createApp(App);
+app.provide("pokemonGateway", new PokemonGatewayHttp());
+app.use(vuetify).mount('#app');

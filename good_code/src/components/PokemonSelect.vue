@@ -4,15 +4,13 @@
       <v-select
         v-model="pokemonSelectModel"
         label="Pokémons"
-        :items="pokemonSelectList"
+        :items="pokemons"
         item-title="name"
         return-object
       ></v-select>
     </v-col>
     <v-col cols="3">
-      <v-btn height="55px" block color="primary" @click="pushPokemon"
-        >Adicionar Pokémon</v-btn
-      >
+      <slot name="right" :currentPokemon="pokemonSelectModel"></slot>
     </v-col>
   </v-row>
 </template>
@@ -21,14 +19,9 @@ import { ref } from "vue";
 import { PokemonCompact } from "../types/Pokemon";
 
 defineProps<{
-  pokemonSelectList: PokemonCompact[];
+  pokemons: PokemonCompact[];
 }>();
 
 const pokemonSelectModel = ref<PokemonCompact>({ name: "", url: "" });
 
-const emit = defineEmits(["push"]);
-
-const pushPokemon = () => {
-  emit("push", pokemonSelectModel.value);
-};
 </script>
