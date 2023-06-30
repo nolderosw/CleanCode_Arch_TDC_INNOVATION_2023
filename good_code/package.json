@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:dev": "vitest run --coverage -c vitest.config.ts"
   },
   "dependencies": {
     "axios": "^1.4.0",
@@ -16,8 +17,13 @@
   "devDependencies": {
     "@mdi/font": "^7.2.96",
     "@vitejs/plugin-vue": "^4.1.0",
+    "@vitest/coverage-v8": "^0.32.2",
+    "@vue/test-utils": "^2.4.0",
+    "happy-dom": "^9.20.3",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
+    "vite-plugin-libcss": "^1.1.1",
+    "vitest": "^0.32.2",
     "vue-tsc": "^1.4.2"
   }
 }

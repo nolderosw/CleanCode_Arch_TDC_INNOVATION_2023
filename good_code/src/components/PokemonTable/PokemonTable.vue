@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { PokemonCompact } from '../types/Pokemon';
+import { PokemonCompact } from '../../types/Pokemon.js';
 
 
 defineProps<{

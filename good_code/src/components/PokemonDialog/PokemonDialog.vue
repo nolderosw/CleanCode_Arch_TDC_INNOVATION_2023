@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
 import { toRef } from "vue";
-import { Pokemon } from "../types/Pokemon";
+import { Pokemon } from "../../types/Pokemon.js";
 
 const props = defineProps<{
   pokemonDetails?: Pokemon;

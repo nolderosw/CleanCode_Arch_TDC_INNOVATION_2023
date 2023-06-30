@@ -16,7 +16,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
-import { PokemonCompact } from "../types/Pokemon";
+import { PokemonCompact } from "../../types/Pokemon.js";
 
 defineProps<{
   pokemons: PokemonCompact[];
