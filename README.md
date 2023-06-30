@@ -1,2 +1,13 @@
-# CleanCode_Arch_TDC_INNOVATION_2023
-Códigos utilizados na palestra de Clean Code e Clean Archtecture do TDC Innovation 2023
+# Código utilizado na apresentação do TDC Innovation 2023 - Trilha de Web e FrontEnd - Palestra: Clean Code e Clean Architecture no Frontend
+
+Fala pessoal, segue aqui nesse repositório o código que utilizei como exemplo na apresentação da minha palestra, bem como os slides utilizados. ☕
+
+Na raiz do projeto vocês vão encontrar três pastas: **bad_code**, **good_code** e **slides**. Os nomes são bem sugestivos porém explicando rapidamente na pasta **slides** vocês vão encontrar os slides em pdf utilizados na apresentação, na pasta **bad_code** vocês vão enontrar uma primeira versão do código (justamente os trechos classificados como **ruim** na apresentação) e por último, na pasta **good_code** estará o código refatorado utilizando os principios que conversei com vocês durante a apresentação! Agora temos o bônus da escrita de testes unitários para os componentes e para a classe **Pokedex** 😃
+
+Stack utilizada: Vue3 + Typescript + Vite + Vuetify3 + Vitest + Vue-test-utils 🔥
+
+Para rodar os projetos: **npm install** para instalar os pacotes e depois **npm run dev**
+
+Para rodar os testes unitários (somente no good_code): **npm run test:dev**
+
+Qualquer dúvida estou a disposição no meu linkedin: https://www.linkedin.com/in/nolderos/
