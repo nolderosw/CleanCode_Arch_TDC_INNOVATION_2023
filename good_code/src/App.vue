@@ -30,10 +30,10 @@
 
 <script setup lang="ts">
 import { inject, onMounted, reactive, ref } from "vue";
-import Header from "./components/AppHeader/AppHeader.vue.js";
-import PokemonTable from "./components/PokemonTable/PokemonTable.vue.js";
-import PokemonDialog from "./components/PokemonDialog/PokemonDialog.vue.js";
-import PokemonSelect from "./components/PokemonSelect/PokemonSelect.vue.js";
+import Header from "./components/AppHeader/AppHeader.vue";
+import PokemonTable from "./components/PokemonTable/PokemonTable.vue";
+import PokemonDialog from "./components/PokemonDialog/PokemonDialog.vue";
+import PokemonSelect from "./components/PokemonSelect/PokemonSelect.vue";
 import { PokemonCompact, Pokemon } from "./types/Pokemon";
 import Pokedex from "./entities/Pokedex";
 import PokemonGateway from "./gateways/PokemonGateway";
