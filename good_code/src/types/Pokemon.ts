@@ -21,4 +21,14 @@ export type PokemonData = {
     sprites: {
         front_default: string;
     };
-} 
+}
+
+export type PokemonGame = {
+  id: string,
+  name: string,
+}
+
+export type PokemonLocation = {
+  id: string,
+  name: string,
+}
